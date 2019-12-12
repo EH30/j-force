@@ -8,8 +8,8 @@ This is a simple java script for bruteforce on md5, sha1, sha224, sha256, sha384
 -------------------------------------   
 Usage
 --------------------------------------   
-javac jforce.java
-java jforce
+javac jforce.java   
+java jforce   
 --------------------------------------   
 
 This Script will try almost all combinations
