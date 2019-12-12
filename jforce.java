@@ -9,6 +9,24 @@ import java.math.BigInteger;
 
 class jeh{
     
+    public static String md2(String str){
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD2");
+            byte[] digestmessage = md.digest(str.getBytes());
+
+            BigInteger b = new BigInteger(1, digestmessage);
+            String hashtext = b.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        
+    }
+    
     public static String md5(String str){
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
@@ -126,27 +144,31 @@ class jeh{
             //System.out.println(crypto(data) + ": " + hashed + ":" + data);
 
             if (hashed.trim().equals(md5(data)) | hashed.trim().equals(md5(data).toUpperCase())){
-                System.out.println("Type: md5  Cracked: "+ data);
+                System.out.println("Type: md5 Cracked: " + data);
                 System.exit(1);
             }
             else if (hashed.trim().equals(sha1(data)) | hashed.trim().equals(sha1(data).toUpperCase())){
-                System.out.println("Type: sha1 Cracked: "+ data);
+                System.out.println("Type: sha1 Cracked: " + data);
                 System.exit(1);
             }
             else if (hashed.trim().equals(sha224(data)) | hashed.trim().equals(sha224(data).toUpperCase())){
-                System.out.println("Type: sha224 Cracked: "+ data);
+                System.out.println("Type: sha224 Cracked: " + data);
                 System.exit(1);
             }
             else if (hashed.trim().equals(sha256(data)) | hashed.trim().equals(sha256(data).toUpperCase())){
-                System.out.println("Type: sha256 Cracked: "+ data);
+                System.out.println("Type: sha256 Cracked: " + data);
                 System.exit(1);
             }
             else if (hashed.trim().equals(sha384(data)) | hashed.trim().equals(sha384(data).toUpperCase())){
-                System.out.println("Type: sha384 Cracked: "+ data);
+                System.out.println("Type: sha384 Cracked: " + data);
                 System.exit(1);
             }
             else if (hashed.trim().equals(sha512(data)) | hashed.trim().equals(sha512(data).toUpperCase())){
-                System.out.println("Type sha512 Cracked: "+ data);
+                System.out.println("Type: sha512 Cracked: " + data);
+                System.exit(1);
+            }
+            else if (hashed.trim().equals(md2(data)) | hashed.trim().equals(md2(data).toUpperCase())){
+                System.out.println("Type: md2 Cracked: " + data);
                 System.exit(1);
             }
 
