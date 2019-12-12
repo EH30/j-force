@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -183,7 +180,7 @@ class jeh{
             }   
         }
     }
-    public static void main(String[] args)throws NoSuchAlgorithmException {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter Hash: ");
