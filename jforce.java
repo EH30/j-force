@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.math.BigInteger;
 
 
-class jeh{
+class jforce{
     
     public static String md2(String str){
         try {
