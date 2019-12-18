@@ -104,7 +104,7 @@ class jforce{
             
             combo(len, wdlist, "", hashed);
         } catch (java.lang.StringIndexOutOfBoundsException e) {
-            System.out.println("Usage: java jforce [Length] [Hash]");
+            System.out.println("Usage: java jforce [Length] [You're Hash]");
         }    
     }
     public static boolean oswindows(){return os.contains("windows") | os.contains("win");}
