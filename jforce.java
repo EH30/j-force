@@ -103,7 +103,7 @@ class jforce{
             //'\ ', "'",  '`'
             
             combo(len, wdlist, "", hashed);
-        } catch (java.lang.IndexOutOfBoundsException e) {
+        } catch (java.lang.ArrayIndexOutOfBoundsException e) {
             System.out.println("Usage: java jforce [Length] [You're Hash]");
         }    
     }
