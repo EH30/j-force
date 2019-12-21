@@ -30,7 +30,7 @@ class jforce{
     public static void combo(int max, char[] chr, String data, String hashed){
         if (data.length() == max){
             //System.out.println(crypto(data) + ": " + hashed + ":" + data);
-            System.out.print(String.format("\r \u001B[36m Trying: %s  Lngth: %d \u001B[0m", data, max));
+            System.out.print(String.format("\r \u001B[36m Trying: %s  Length: %d \u001B[0m", data, max));
             if (hashed.trim().equals(crypto(data, "MD5")) | hashed.trim().equals(crypto(data, "MD5").toUpperCase())){
                 System.out.println(String.format("\u001B[36m Type: MD5 Cracked: %s \u001B[0m", data));
                 System.exit(0);
@@ -103,7 +103,7 @@ class jforce{
             //'\ ', "'",  '`'
             
             combo(len, wdlist, "", hashed);
-        } catch (java.lang.StringIndexOutOfBoundsException e) {
+        } catch (java.lang.IndexOutOfBoundsException e) {
             System.out.println("Usage: java jforce [Length] [You're Hash]");
         }    
     }
