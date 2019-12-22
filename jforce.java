@@ -93,18 +93,58 @@ class jforce{
         clear_console();
 
         try {
-            int len = Integer.parseInt(args[0]);
-            String hashed = args[1];
+            String get_len = args[0];
+            String hashed = null;
+            int[] len = null;
+
+            switch (get_len) {
+                case "--tolen":
+                    int len1 = Integer.parseInt(args[1]);
+                    int len2 = Integer.parseInt(args[2]);
+                    len = new int[2];
+                    len[0] = len1;
+                    len[1] = len2;
+                    hashed = args[3];
+                    break;
+                
+                case "--help":
+                    System.out.println("Usage: java jforce [Length] [Hash]");
+                    System.out.println("java jforce [You're Single Length] [You're Hash] This will try single length \n");
+                    System.out.println("--tolen   This Will try between two length example: --tolen 1 5 the example shown will try length from 1 to 5");
+                    System.out.println("--help    This will Show This Help message");
+                    break;
+                    
+                default:
+                    len = new int[1];
+                    len[0] = Integer.parseInt(args[0]);
+                    hashed = args[1];
+
+            }
+
 
             char[] wdlist = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h','i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'z', 'y',
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Z', 'Y', '/', '.',
             ';', '"', ']', '[', '+', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ':', '|', ',', '=', '-', '_', '!', '@', '#', '$', '%', '^', 
             '&', '*', '(' ,')' ,'~', '`', 92, 39};
             //'\ ', "'",  '`'
+            if (len == null){
+                System.exit(0);
+                
+            }else if (len.length > 1){
+                int count = len[0];
+                while (count <= len[1]){
+                    clear_console();
+                    combo(count, wdlist, "", hashed);
+                    count += 1;
+                }
+
+            }else if (len.length == 1) {
+                combo(len[0], wdlist, "", hashed);
+            }
             
-            combo(len, wdlist, "", hashed);
+            
         } catch (java.lang.ArrayIndexOutOfBoundsException e) {
-            System.out.println("Usage: java jforce [Length] [You're Hash]");
+            System.out.println("Usage: java jforce [Length] [Hash]");
         }    
     }
     public static boolean oswindows(){return os.contains("windows") | os.contains("win");}
